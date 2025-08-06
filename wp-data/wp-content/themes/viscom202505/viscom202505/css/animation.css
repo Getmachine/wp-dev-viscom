@@ -1,0 +1,161 @@
+/************************************
+ ** splash
+ ************************************/
+/* スプラッシュ画面 */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* 黒背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#splash-text {
+  font-family: var(--font-en);
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+  color: #fff; /* 白色で文字が見えるように */
+  font-size: 5rem;
+  opacity: 0; /* 初期は透明 */
+  transition: opacity 1s ease-in-out;
+}
+@media screen and (max-width: 1000px) {
+  #splash-text {
+    font-size: 3rem;
+  }
+}
+/*===========================================================
+  effect
+===========================================================*/
+/* 各文字の基本スタイル */
+.letter {
+  display: inline-block; /* 各文字を個別に制御 */
+  opacity: 0; /* 初期状態は透明 */
+  transform: translateY(20px); /* 下から表示されるようにオフセット */
+  animation: fadeInUp 0.1s ease-out forwards; /* フェードインと移動 */
+}
+/* フェードイン＋上に移動するアニメーション */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.text-fadein {
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  font-family: "HVMuseRegular";
+  font-weight: 100;
+  font-style: normal;
+  color: #3a3849;
+  font-size: 8rem;
+  letter-spacing: -0.5rem;
+  line-height: 0.94;
+}
+
+.text-fadein span {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+}
+
+.text-fadein span:nth-child(1) {
+  animation: fadeInText 1s ease 0.1s forwards;
+}
+
+.text-fadein span:nth-child(2) {
+  animation: fadeInText 1s ease 0.2s forwards;
+}
+
+.text-fadein span:nth-child(3) {
+  animation: fadeInText 1s ease 0.3s forwards;
+}
+
+.text-fadein span:nth-child(4) {
+  animation: fadeInText 1s ease 0.4s forwards;
+}
+
+.text-fadein span:nth-child(5) {
+  animation: fadeInText 1s ease 0.5s forwards;
+}
+
+.text-fadein span:nth-child(6) {
+  animation: fadeInText 1s ease 0.6s forwards;
+}
+
+.text-fadein span:nth-child(7) {
+  animation: fadeInText 1s ease 0.7s forwards;
+}
+
+.text-fadein span:nth-child(8) {
+  animation: fadeInText 1s ease 0.8s forwards;
+}
+
+.text-fadein span:nth-child(9) {
+  animation: fadeInText 1s ease 0.9s forwards;
+}
+.text-fadein span:nth-child(10) {
+  animation: fadeInText 1s ease 1s forwards;
+}
+
+@keyframes fadeInText {
+  0% {
+    transform: translateY(105%);
+    opacity: 0; /* アニメーション開始時も透明 */
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1; /* アニメーション終了時に可視化 */
+  }
+}
+/*===========================================================
+  scroll-text
+===========================================================*/
+.scrolling-text-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: relative; /* 通常フロー内で配置 */
+  margin-bottom: 20px;
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: var(--font-en);
+  font-size: 30rem;
+  font-weight: 100;
+  color: var(--color-gray);
+  letter-spacing: 1rem;
+  animation: scroll-left linear infinite; /* アニメーションを設定 */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%); /* 初期位置（右端） */
+  }
+  100% {
+    transform: translateX(-100%); /* 終了位置（左端） */
+  }
+}
+@media screen and (max-width: 450px) {
+  .scrolling-text-container {
+    margin-bottom: 30px;
+  }
+  .scrolling-text {
+    font-size: 15rem;
+    line-height: 100%;
+  }
+}
