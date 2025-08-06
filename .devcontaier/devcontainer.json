@@ -1,0 +1,18 @@
+{
+  "name": "WordPress Dev Container",
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+  "service": "wordpress",
+  "workspaceFolder": "/var/www/html",
+  "forwardPorts": [8000],
+  "postCreateCommand": "chmod -R 777 /var/www/html/wp-content",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint"
+      ]
+    }
+  }
+}
